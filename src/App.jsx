@@ -1,4 +1,6 @@
 import { useState } from "react";
+import SearchBar from "./components/SearchBar";
+import WeatherCard from "./components/WeatherCard";
 
 function App()
 {
@@ -38,9 +40,9 @@ function App()
         description: data.weather[0].description
       });
     }
-    catch(error)
+    catch(err)
     {
-      setError(error.message);  
+      setError(err.message);  
       setWeather(null);
     }
     finally
@@ -50,23 +52,11 @@ function App()
   }
   return(
     <>
-    <h1>Weather App</h1>
-    <input placeholder="Search city" value = {city} onChange={
-      (event) => {setCity(event.target.value);}
-    }></input>
-    <button onClick={searchWeather}>Search</button>
-    {loading && <p>Loading...</p>}
-    {error && <p>{error}</p>}
-    {weather && (
-      <div>
-        <h2>{weather.city}</h2>
-        <p>🌡 Temperature: {weather.temp}°C</p>
-        <p>💧 Humidity: {weather.humidity}%</p>
-        <p>🌬 Wind: {weather.wind} m/s</p>
-        <p>☁ {weather.description}</p>
-      </div>
-    )}
-    </>
-  );
+      <h1>Weather App</h1>
+      <SearchBar city={city} setCity={setCity} searchWeather={searchWeather}/>
+      {loading && <p>Loading...</p>}
+      {error && <p>{error}</p>}
+      {weather && <WeatherCard weather={weather}/>}
+    </>);
 }
 export default App;
