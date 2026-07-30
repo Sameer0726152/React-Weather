@@ -1,7 +1,7 @@
 function WeatherCard({weather})
 {
     return(
-        <div>
+        <div className="weather-card">
             <h2>{weather.city}</h2>
             <p>🌡 Temperature: {weather.temp}°C</p>
             <p>💧 Humidity: {weather.humidity}%</p>

@@ -51,12 +51,12 @@ function App()
     }
   }
   return(
-    <>
+    <div className="app">
       <h1>Weather App</h1>
       <SearchBar city={city} setCity={setCity} searchWeather={searchWeather}/>
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
       {weather && <WeatherCard weather={weather}/>}
-    </>);
+    </div>);
 }
 export default App;
