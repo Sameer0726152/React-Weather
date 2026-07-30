@@ -8,8 +8,7 @@
 
 body{
   color: white;
-  background: black;
-  background-color: black;
+  background-color: rgb(83, 81, 81);
 }
 
 input{
@@ -28,5 +27,5 @@ button{
     margin-top:25px;
     padding:20px;
     border-radius:10px;
-    background:#ff0000;
+    background:gray;
 }
